@@ -12,6 +12,11 @@ import { Component, OnInit } from '@angular/core';
   //style binding [style.css property name, ie color] = " 'ie: orange' ";
   //can also use boolean/conditional expression
   template: `
+  <h2> Welcome {{name}} </h2>
+  <!-- $event is a special angular parameter that displays the event info, can also hard code the message if want to -->
+  <button (click)="onClick($event)"> Greet </button>
+  <button (click)="greet = 'wecome bobby'"> Greet </button>
+  {{greet}}
   <!-- <h1 class="text-danger"> yoooo what's good {{name}}</h1> -->
   <h2>{{2+2}}</h2>
   <!--<h2 [class]="successClass">{{"Welcome " + name}}</h2>-->
@@ -32,17 +37,7 @@ import { Component, OnInit } from '@angular/core';
   // can also inline template here w `` (backticks)
   // styleUrls: ['./test.component.css']
   //style binding
-  styles: [`
-    .text-success{
-      color: green;
-    }
-    .text-danger{
-      color: red
-    }
-    .text-special{ 
-      font-style: italic;
-    }
-  `]
+  styles: []
 })
 export class TestComponent implements OnInit {
 
@@ -65,11 +60,16 @@ export class TestComponent implements OnInit {
     color: "blue",
     fontStyle: "italic"
   }
+  public greet = "";
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClick(event){
+    console.log(event)
+    this.greet = "Welcome hoe";
+  }
   greetUser(){
     return "Hello " + this.name;
   }
