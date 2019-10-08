@@ -13,6 +13,8 @@ import { Component, OnInit } from '@angular/core';
   //can also use boolean/conditional expression
   template: `
   <h2> Welcome {{name}} </h2>
+  <input #myInput type="text">
+  <button (click) = "logMessage(myInput.value)">Log</button>
   <!-- $event is a special angular parameter that displays the event info, can also hard code the message if want to -->
   <button (click)="onClick($event)"> Greet </button>
   <button (click)="greet = 'wecome bobby'"> Greet </button>
@@ -69,6 +71,9 @@ export class TestComponent implements OnInit {
   onClick(event){
     console.log(event)
     this.greet = "Welcome hoe";
+  }
+  logMessage(value){
+    console.log(value);
   }
   greetUser(){
     return "Hello " + this.name;
