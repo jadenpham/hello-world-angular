@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
       </h2>
     </ng-template> -->
     <!-- another way to using ngIf, reads if displayname is true then render ng-template thenBlock, else render elseBlock -->
-    <div *ngIf = "displayName; then thenBlock; else elseBlock">
+    <!--<div *ngIf = "displayName; then thenBlock; else elseBlock">
     
     </div>
     <ng-template #thenBlock>
@@ -22,15 +22,28 @@ import { Component, OnInit } from '@angular/core';
     </ng-template>
     <ng-template #elseBlock>
       <h2>If false this should pop up </h2>
-    </ng-template>
-    
+    </ng-template> -->\
+
+    <!-- so if the color is a certain value, display the elem that corresponds to the value, if not use switchdefault if none matches -->
+    <!--<div [ngSwitch]="color">
+      <div *ngSwitchCase = "'red'">You picked red</div>
+      <div *ngSwitchCase = "'blue'">You picked blue</div>
+      <div *ngSwitchCase = "'green'">You picked green</div>
+      <div *ngSwitchDefault> Pick another color</div>
+    </div> -->
+    <!-- can use some special key words such as index, first, last, odd, even, add ngif to do more logic -->
+    <div *ngFor ="let color of colors; first as f">
+      <h2>{{f}} {{color}}</h2>
+    </div>
   `,
 
   styleUrls: ['./directives.component.css']
 })
 export class DirectivesComponent implements OnInit {
   //setting attribute for ngIf
-  displayName = true;
+  public displayName = true;
+  public color = "asdf";
+  public colors = ["red", "blue", "green", "yellow"];
   constructor() { }
 
   ngOnInit() {
