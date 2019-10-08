@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
+import { DirectivesComponent } from './directives/directives.component';
 
 @NgModule({
   //all components being used in app
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    DirectivesComponent
   ],
   imports: [
     BrowserModule
