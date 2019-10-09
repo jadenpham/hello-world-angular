@@ -1,4 +1,9 @@
-<h2>List of employees</h2>
+<!-- <h2>List of employees</h2>
 <ul *ngFor ='let em of employees'>
     <li>{{em.name}}</li>
+</ul> -->
+<h2>Pokemon info</h2>
+<ul *ngFor = "let poke of pokemonData">
+    <li>Name: {{poke.forms[0].name}}</li>
+    <li>Abilities: {{poke.abilities[0].ability.name}}</li>
 </ul>

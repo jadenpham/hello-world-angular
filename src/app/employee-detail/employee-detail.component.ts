@@ -12,7 +12,7 @@ export class EmployeeDetailComponent implements OnInit {
   constructor(private _httpsService: EmployeeService) { }
 
   ngOnInit() {
-    this.employees = this._httpsService.getEmployees();
+    // this.employees = this._httpsService.getEmployees();
   }
 
 }
