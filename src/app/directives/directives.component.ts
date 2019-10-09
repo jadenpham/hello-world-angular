@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: '[app-directives]',
+  selector: 'app-directives',
   // templateUrl: './directives.component.html',
   //reads if true show the h2 tag, else show the ng-template elem, using this to wrap and give it a name so the conditional knows which one to show
   template: `
@@ -32,9 +32,11 @@ import { Component, OnInit } from '@angular/core';
       <div *ngSwitchDefault> Pick another color</div>
     </div> -->
     <!-- can use some special key words such as index, first, last, odd, even, add ngif to do more logic -->
-    <div *ngFor ="let color of colors; first as f">
+    <!--<div *ngFor ="let color of colors; first as f">
       <h2>{{f}} {{color}}</h2>
-    </div>
+    </div> -->
+    <h2>Hello {{name}}</h2>
+    <button (click)="fireEvent()">Send Event</button>
   `,
 
   styleUrls: ['./directives.component.css']
@@ -44,9 +46,19 @@ export class DirectivesComponent implements OnInit {
   public displayName = true;
   public color = "asdf";
   public colors = ["red", "blue", "green", "yellow"];
+  //telling angular this is data from the parent
+  // @Input() public parentData;
+  //can use alias to store parentData
+  @Input('parentData') public name;
+  //sending data from child to parent, import eventemitter with input/output
+  @Output() public child = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+  }
+  //need event to trigger to send to parent, use .emit to send the data over
+  fireEvent(){
+    this.child.emit('Hey this is from the child');
   }
 
 }

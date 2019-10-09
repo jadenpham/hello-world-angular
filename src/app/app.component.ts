@@ -10,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testing';
+  public name = "Jaden";
+  //setting message to capture the event from child, need to be same as in selector
+  public messages = "";
 }
+
+
