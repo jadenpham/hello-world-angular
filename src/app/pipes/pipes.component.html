@@ -1,0 +1,26 @@
+<!-- using pipes to change the capitlization -->
+<h2>{{name | uppercase}}</h2>
+<h2>{{name | lowercase}}</h2>
+<h2>{{message | titlecase}}</h2>
+<!-- using pipes to slice:starting point: ending point -->
+<h2>{{name | slice:2:4}}</h2>
+<!-- shows the object as json on template -->
+<h2>{{person | json}}</h2>
+
+<!-- using pipes to show how many decimal/whole numbers, first number shows how many digits to show, after is how many decimal points -->
+<h2>{{1.23 | number:'1.1-2'}}</h2>
+<h2>{{1.23 | number:'3.2-4'}}</h2>
+<h2>{{1.23 | number:'1.0-1'}}</h2>
+
+<!-- showing the number in percentage -->
+<h2>{{1.23 | percent}}</h2>
+
+<!-- shows number in currency in USD, can change it to diff currency as argument -->
+<h2>{{1.23 | currency: 'EUR'}}</h2>
+<!-- 'code' shows the iso code instead of symbol -->
+<h2>{{1.23 | currency: 'EUR': 'code'}}</h2>
+<!-- pipe can also format date/time, from short, med, long -->
+<h2>{{date}}</h2>
+<h2>{{date | date:'short'}}</h2>
+<h2>{{date | date:'shortDate'}}</h2>
+<h2>{{date | date:'shortTime'}}</h2>
